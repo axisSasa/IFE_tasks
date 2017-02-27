@@ -12,16 +12,15 @@ body {
 	overflow: hidden;
 }
 .upperLeft {
-	width: 100px;
-	height: 100px;
-	background-color: #ffcc00;
 	transform: translate(-50%, -50%);
 	border-radius: 50px;
 }
 .bottomRight {
-	width: 100px;
-	height: 100px;
-	background-color: #ffcc00;	
 	transform: translate(350px, 50px);
 	border-radius: 50px;
+}
+.round {
+	width: 100px;
+	height: 100px;
+	background-color: #ffcc00;		
 }
