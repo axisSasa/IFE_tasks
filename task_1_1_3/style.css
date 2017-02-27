@@ -1,0 +1,57 @@
+body {
+	margin: 0;
+}
+div {
+	border: 1px solid #999999;
+}
+section {
+	background-color: #eeeeee;
+	margin: 20px;
+	overflow: hidden;
+}
+section .left, section .right {
+	margin: 20px;
+}
+.left {
+	float: left;
+	width: 200px;
+}
+section .middle {
+	margin: 20px 162px 0 242px;
+	overflow: hidden;
+}
+
+.right {
+	float: right;
+	width: 120px;
+}
+.left div {
+	height: 120px;
+	background-color: white;
+}
+.left img {
+	height: 80px;
+	width: 80px;
+	padding: 20px;
+}
+.left span {
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 20px;
+}
+.right img {
+	height: 80px;
+	width: 80px;
+	padding: 20px 20px 0 20px;
+}
+.right img:last-child {
+	padding-bottom: 20px;
+}
+.wrap {
+	margin: 20px;
+	background-color: white;
+}
+.des {
+	border: 0;
+	padding: 20px;
+}
