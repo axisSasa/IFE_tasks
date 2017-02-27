@@ -1,0 +1,132 @@
+* {outline: 0;padding: 0;margin: 0;border: 0;-webkit-tap-highlight-color:transparent;}
+table {border-collapse: collapse;}
+body {
+	background-color: #dedede;
+}
+article, section {
+	background-color: white;
+	margin: 20px;
+}
+article h3, article div span {
+	color: gray;
+}
+article p {
+	text-indent: 24px;
+}
+article ul {
+	margin-left: 40px;
+	list-style: none;
+}
+
+article .wrap, section .wrap, aside .wrap {
+	padding: 20px;
+}
+.wrap>h2 {
+	margin-bottom: 10px;
+}
+.wrap .block {
+	text-align: center;
+	border: 0.5px dashed gray;
+	width: 100px;
+	height: 100px;
+	margin: 0 0 10px 40px;
+}
+.wrap .block p {
+	padding: 5px;
+	font-size: 12px;
+}
+.wrap .block img {
+	width: 70%;
+	height: 60%;
+}
+.wrap .ranking {
+	margin-left: 40px;
+}
+.header1 {
+	position: relative;
+	background-color: #333333;
+	height: 50px;
+}
+.header1 .nav {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	/*left: 50%;*/
+	transform: translate(0, -50%);
+}
+.header1 ul li {
+	float: left;
+	padding-right: 30px;
+}
+.header1 ul li a {
+	text-decoration: none;
+	color: white;
+	font-size: 12px;
+}
+.noIndent {
+	text-indent: 0;
+}
+.table1 {
+	border: 1px solid #dedede;
+	width: 100%;
+}
+.table1 th, .table1 td {
+	border: 1px solid #dedede;
+	padding-left: 5px;
+}
+.table1 tr:first-child {
+	color: white;
+	background-color: #333333;
+}
+.table1 tr:last-child {
+	background-color: #dedede;
+}
+
+aside h2 {
+	font-size: 16px;
+	display: inline-block;
+	line-height: 32px;
+	overflow:hidden;   
+}
+.vertcalLine {
+	height: 30px;
+	border: 1px solid #dedede;
+	display: inline-block;
+}
+.submit {
+	color: white;
+	font-size: 16px;
+	height: 40px;
+	border-radius: 15px;
+	width: 100%;
+	background-color: #3355d0;
+}
+.form1 span {
+	color: black;
+}
+footer {
+	color: white;
+	height: 80px;
+	background-color: #333333;
+	line-height: 80px;
+	text-align: center;
+}
+.form1 span {
+	display: inline-block;
+	width: 40%;
+	text-align: right;
+}
+.form1 div {
+	margin-bottom: 10px;
+}
+.form1 input, .form1 textarea {
+	border: 1px solid gray;
+}
+.form1 textarea {
+	width: 50%;
+	height: 50px;
+}
+.form1 .des span {
+	vertical-align: top;
+}
+
