@@ -9,6 +9,7 @@ article, section {
 }
 .leftSide article, .leftSide section {
 	margin-bottom: 20px;
+	box-shadow: 0.1em 0.1em 0.1em;
 }
 article h3, article div span {
 	color: gray;
@@ -136,9 +137,11 @@ footer {
 .rightSide {
 	float: right;
 	width: 400px;
+	margin-right: 4px;
+	box-shadow: 0.1em 0.1em 0.1em;
 }
 .leftSide {
-	margin-right: 420px;
+	margin-right: 424px;
 }
 .content {
 	margin: 20px 20px 0 20px;
