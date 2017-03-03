@@ -22,6 +22,9 @@ blockquote {
 header {
 	width: 892px;
 	margin: 0 auto;
+	overflow: hidden;
+	border-bottom: 2px solid #938e8c;
+	position: relative;
 }
 .wrap {
 	width: 980px;
@@ -32,20 +35,26 @@ header {
 	width: 110px;
 	height: 61px;
 	background-color: #d55d5c;
+	float: left;
 }
-.logo span {
+.logo > a {
 	position: relative;
 	font-size: 12px;
 	font-weight: bold;
 	color: #ffffff;
+	text-decoration: none;
 	top: 40px;
 	left: 5px;
 }
-.line1 {
-	width: 892px;
-	height: 2px;
-	background-color: #938e8c;
+time {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 12px;
+	color: #d45d5c;
+	/*float: right;*/
 }
+
 section {
 	overflow: hidden;
 	width: 892px;
@@ -446,4 +455,14 @@ section {
 	height: 1px;
 	background-color: #938e8c;
 	margin: 0 auto;
+}
+footer {
+	width: 892px;
+	margin: 0 auto;
+}
+footer a {
+	color: #d45d5c;
+	float: right;
+	font-size: 12px;
+	text-decoration: none; 
 }
