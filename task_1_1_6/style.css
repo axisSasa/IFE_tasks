@@ -1,3 +1,24 @@
+body,
+p,
+h1,
+h2,
+h3,
+div,
+section,
+article,
+img,
+ul,
+li,
+dd,
+dt,
+dl,
+hr,
+figure,
+figcaption,
+blockquote {
+	padding: 0;
+	margin: 0;
+}
 header {
 	width: 892px;
 	margin: 0 auto;
@@ -386,34 +407,40 @@ section {
 	bottom: 0;
 	right: 0;
 	font-family: "SimHei";
+	text-indent: 3em;
 }
-.desCard span {
-	font-size: 72px;
-	color: #d45d5c;
-	font-style: normal;
-}
-.desCard span:nth-of-type(1) {
-	float: left;
-	transform: translate(-50%);
-}
-.desCard span:nth-of-type(2) {
-	float: right;
-	transform: translate(50%);
-}
+
 .desCard p {
 	font-size: 14px;
 	color: #5a5b5b;
 	font-style: oblique;
-	margin: 0;
+    max-height: 112px;
+    overflow: hidden;
+    line-height: 16px;
+    padding-top: 20px;
+    margin-left: 10px;
+    text-indent: 3em;
 }
-/*.desCard div:first-of-type {
-	float: left;
-	transform: translate(-50%);
+
+.desCard:before, .desCard:after {
+    display: block;
+    font-size: 72px;
+    font-style: normal;
+    color: #d45d5c;	
 }
-.desCard div:last-of-type {
-	float: right;
-	transform: translate(50%);
-}*/
+.desCard:before {
+	content: "“";
+    position: absolute;
+    top: 4px;
+    left: -78px;	
+}
+.desCard:after {
+    content: "”";
+    position: relative;
+    bottom: 20px;
+    right: -90px;
+}
+
 .bottomLine {
 	width: 892px;
 	height: 1px;
