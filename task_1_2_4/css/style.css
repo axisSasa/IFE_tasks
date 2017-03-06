@@ -1,0 +1,50 @@
+body,
+p,
+h1,
+h2,
+h3,
+div,
+section,
+article,
+img,
+ul,
+li,
+dd,
+dt,
+dl,
+hr,
+figure,
+figcaption,
+blockquote {
+	padding: 0;
+	margin: 0;
+}
+
+.control > input {
+	border-width: 1px;
+	border-style: outset;
+}
+.control > button {
+	background-color: white;
+	border-radius: 8px;
+	border-width: 1px;
+}
+.control > .leftOut {
+	margin-left: 20px;
+}
+.control, .display {
+	margin: 10px 0 0 40px;
+}
+.display > span {
+	color: white;
+	background-color: red;
+	text-align: center;
+	line-height: 40px;
+	float: left;
+	width: 40px;
+	height: 40px;
+	margin-left: 10px;
+}
+.display > span:first-of-type {
+	margin-left: 0;
+}

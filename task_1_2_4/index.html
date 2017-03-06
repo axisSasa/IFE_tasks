@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task_js_4</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+	<div class="control">
+		<input type="number"/>
+		<button class="leftIn">左侧入</button>
+		<button class="rightIn">右侧入</button>
+		<button class="leftOut">左侧出</button>
+		<button class="rightOut">右侧出</button>		
+	</div>
+	<div class="display">
+	</div>
+	<script>
+		(function(){
+			var display = document.querySelector('.display');
+			function getData() {
+				return document.querySelector('.control > input').value;
+			}
+			function getSpan(data) {
+				var textNode = document.createTextNode(data);
+				var element = document.createElement("span");
+				element.appendChild(textNode);
+				return element;				
+			}
+			function handelLeftIn() {
+				var data = getData();
+				//放入队列左端
+				display.insertBefore( getSpan(data), display.firstChild );
+			}
+			function handleRightIn() {
+				var data = getData();
+				//放入队列右端
+				display.appendChild( getSpan(data) );
+			}
+			function handleLeftOut() {
+				display.removeChild(display.firstChild);
+			}
+			function handelRightOut() {
+				display.removeChild(display.lastChild);
+			}
+			// document.querySelector('.leftIn').addEventListener('click', handelLeftIn, false);
+			// document.querySelector('.rightIn').addEventListener('click', handleRightIn, false);
+			// document.querySelector('.leftOut').addEventListener('click', handleLeftOut, false);
+			// document.querySelector('.rightOut').addEventListener('click',handelRightOut, false);
+			function handleClick(ev) {
+				console.log(ev.target.className);
+				switch(ev.target.className) {
+					case 'leftIn' : 
+						handelLeftIn();
+						break;
+					case 'rightIn' :
+						handleRightIn();
+						break;
+					case 'leftOut' :
+						handleLeftOut();
+						break;
+					case 'rightOut' :
+						handelRightOut();
+						break;
+					default : 
+						console.log('无效点击');
+				}
+			}
+			//利用事件委托 降低内存使用 减少浏览器与页面之间的链接
+			document.querySelector('.control').addEventListener('click', handleClick, false);
+		})();
+	</script>
+</body>
+</html>
