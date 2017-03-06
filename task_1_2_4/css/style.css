@@ -41,7 +41,7 @@ blockquote {
 	text-align: center;
 	line-height: 40px;
 	float: left;
-	width: 40px;
+	padding: 0 10px;
 	height: 40px;
 	margin-left: 10px;
 }

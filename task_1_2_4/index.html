@@ -21,25 +21,45 @@
 				return document.querySelector('.control > input').value;
 			}
 			function getSpan(data) {
+
 				var textNode = document.createTextNode(data);
 				var element = document.createElement("span");
 				element.appendChild(textNode);
 				return element;				
 			}
 			function handelLeftIn() {
+
 				var data = getData();
+				if ( data == '' ) {
+					alert('请输入数字');
+					return;
+				}
 				//放入队列左端
 				display.insertBefore( getSpan(data), display.firstChild );
 			}
 			function handleRightIn() {
+
 				var data = getData();
+				if ( data == '' ) {
+					alert('请输入数字');
+					return;
+				}				
 				//放入队列右端
 				display.appendChild( getSpan(data) );
 			}
 			function handleLeftOut() {
+
+				if (display.firstChild == null) {
+					alert('请先添加元素再弹出');
+					return;
+				}
 				display.removeChild(display.firstChild);
 			}
 			function handelRightOut() {
+				if (display.firstChild == null) {
+					alert('请先添加元素再弹出');
+					return;
+				}				
 				display.removeChild(display.lastChild);
 			}
 			// document.querySelector('.leftIn').addEventListener('click', handelLeftIn, false);
@@ -47,7 +67,7 @@
 			// document.querySelector('.leftOut').addEventListener('click', handleLeftOut, false);
 			// document.querySelector('.rightOut').addEventListener('click',handelRightOut, false);
 			function handleClick(ev) {
-				console.log(ev.target.className);
+
 				switch(ev.target.className) {
 					case 'leftIn' : 
 						handelLeftIn();
