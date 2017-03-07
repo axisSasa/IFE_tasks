@@ -1,0 +1,55 @@
+body,
+p,
+h1,
+h2,
+h3,
+div,
+section,
+article,
+img,
+ul,
+li,
+dd,
+dt,
+dl,
+hr,
+figure,
+figcaption,
+blockquote {
+	padding: 0;
+	margin: 0;
+}
+
+.control {
+	margin-top: 40px;
+	text-align: center;
+}
+.control > input {
+	border-width: 1px;
+	border-style: outset;
+}
+.control > button {
+	background-color: white;
+	border-radius: 8px;
+	border-width: 1px;
+}
+.control > .leftOut, .control > .quickSort {
+	margin-left: 20px;
+}
+
+.display {
+	height: 120px;
+	/*不设置宽度，这样内部float的元素自动适应居中，
+	因为display总是居中的，内部撑起width后还是剧中的*/
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);	
+}
+.display > span {
+	background-color: red;
+	/*display: inline-block;设置display空格会影响排版导致空隙变大*/
+	float: left;
+	width: 20px;
+	margin-left: 5px;
+}

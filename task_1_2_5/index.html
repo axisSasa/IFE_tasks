@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task_js_5</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+	<div class="display"></div>
+	<div class="control">
+		<input type="number"/>
+		<button class="leftIn">左侧入</button>
+		<button class="rightIn">右侧入</button>
+		<button class="leftOut">左侧出</button>
+		<button class="rightOut">右侧出</button>
+		<button class="quickSort">快速排序</button>		
+	</div>	
+	<script>
+	//存储所有高度的全局变量
+	var que = [];
+		(function(){
+
+			var display = document.querySelector('.display');
+
+			function getData() {
+				return document.querySelector('.control > input').value;
+			}
+
+			function getSpan(data) {
+
+				var element = document.createElement("span");
+				element.style.height = data + 'px';
+				element.style.marginTop = (110 - data) + 'px';
+				return element;				
+			}
+
+			function handleInput(data) {
+				if ( data == '' || (data < 10 || data > 100) ) {
+
+					alert('请输入10-100之内的数字');
+					return false;
+				}
+				if (que.length == 60 ) {
+
+					alert("输入数据不能超过60个");
+					return false;
+				}	
+				return true;
+			} 
+			function handelLeftIn() {
+
+				var data = getData();
+				//处理输入
+				if (!handleInput(data)) {
+					return;
+				}
+				//放入队列左端
+				que.unshift(Number(data));
+				display.insertBefore( getSpan(data), display.firstChild );
+			}
+
+			function handleRightIn() {
+
+				var data = getData();
+				//处理输入
+				if (!handleInput(data)) {
+					return;
+				}		
+				//放入队列右端
+				que.push(Number(data));
+				display.appendChild( getSpan(data) );
+			}
+
+			function handleLeftOut() {
+
+				if (display.firstChild == null) {
+					alert('请先添加元素再弹出');
+					return;
+				}
+				que.shift();
+				display.removeChild(display.firstChild);
+			}
+
+			function handelRightOut() {
+				if (display.firstChild == null) {
+					alert('请先添加元素再弹出');
+					return;
+				}
+				que.pop();				
+				display.removeChild(display.lastChild);
+			}
+			function quickSort(array){
+				function sort(prev, numsize){
+					var nonius = prev;
+					var j = numsize - 1;
+					var flag = array[prev];
+					if ((numsize - prev) > 1) {
+						while(nonius < j){
+							for(; nonius < j; j--){
+								if (array[j] < flag) {
+									array[nonius++] = array[j];　//a[i] = a[j]; i += 1;
+									break;
+								};
+							}
+							for( ; nonius < j; nonius++){
+								if (array[nonius] > flag){
+									array[j--] = array[nonius];
+									break;
+								}
+							}
+						} 
+						array[nonius] = flag;
+						sort(0, nonius);
+						sort(nonius + 1, numsize);
+					}
+				}
+			sort(0, array.length);
+			return array;
+			}
+			function quickRefresh ( array ) {
+
+				display.innerHTML = null;
+				for (var i = array.length - 1; i >= 0; i--) {
+					display.insertBefore( getSpan(array[i]), display.firstChild );
+				}
+			}
+			function sleep (millisecond) {
+				var now = new Date();
+				var passedTime = now.getTime() + millisecond;
+				while(true) {
+					now = new Date();
+					if (now.getTime() > passedTime) {
+						return;
+					}
+				}
+			}
+			function handleQuickSort() {
+
+				que = quickSort(que);
+				quickRefresh(que);
+			}
+
+			// document.querySelector('.leftIn').addEventListener('click', handelLeftIn, false);
+			// document.querySelector('.rightIn').addEventListener('click', handleRightIn, false);
+			// document.querySelector('.leftOut').addEventListener('click', handleLeftOut, false);
+			// document.querySelector('.rightOut').addEventListener('click',handelRightOut, false);
+			function handleClick(ev) {
+
+				switch(ev.target.className) {
+					case 'leftIn' : 
+						handelLeftIn();
+						break;
+					case 'rightIn' :
+						handleRightIn();
+						break;
+					case 'leftOut' :
+						handleLeftOut();
+						break;
+					case 'rightOut' :
+						handelRightOut();
+						break;
+					case 'quickSort' :
+						handleQuickSort();
+						break;
+					default : 
+						console.log('无效点击');
+				}
+			}
+			//利用事件委托 降低内存使用 减少浏览器与页面之间的链接
+			document.querySelector('.control').addEventListener('click', handleClick, false);
+		})();
+
+	</script>
+</body>
+</html>
