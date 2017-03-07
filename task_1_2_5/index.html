@@ -20,7 +20,7 @@
 		(function(){
 
 			var display = document.querySelector('.display');
-
+			var spanList = display.getElementsByTagName('span');
 			function getData() {
 				return document.querySelector('.control > input').value;
 			}
@@ -98,12 +98,14 @@
 							for(; nonius < j; j--){
 								if (array[j] < flag) {
 									array[nonius++] = array[j];　//a[i] = a[j]; i += 1;
+									quickRefresh(array);
 									break;
 								};
 							}
 							for( ; nonius < j; nonius++){
 								if (array[nonius] > flag){
 									array[j--] = array[nonius];
+									quickRefresh(array);
 									break;
 								}
 							}
@@ -117,10 +119,9 @@
 			return array;
 			}
 			function quickRefresh ( array ) {
-
-				display.innerHTML = null;
 				for (var i = array.length - 1; i >= 0; i--) {
-					display.insertBefore( getSpan(array[i]), display.firstChild );
+					spanList[i].style.height = array[i] + 'px';
+					spanList[i].style.marginTop = (110 - array[i]) + 'px';
 				}
 			}
 			function sleep (millisecond) {
