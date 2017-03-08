@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task_js_6</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+	<div class="control">
+		<textarea autofocus="true" rows="3" cols="30" placeholder="这里输入文本">
+		</textarea>
+		<button class="leftIn">左侧入</button>
+		<button class="rightIn">右侧入</button>
+		<button class="leftOut">左侧出</button>
+		<button class="rightOut">右侧出</button>
+		<div class="check">
+			<input type="text"/>
+			<button class="checkbtn">检&nbsp;查</button>
+		</div>		
+	</div>
+	<div class="display">
+	</div>
+	<script>
+		var que = [];
+		(function(){
+			var display = document.querySelector('.display');
+			function getData(para) {
+				var data = document.querySelector(para).value.trim();
+				data =  data.split(/[^A-Za-z0-9\u4E00-\u9FA5]+/g,60);
+				if ( data[data.length - 1] == '' && data.length > 1) {
+					//处理数组最后一个为空的情况
+					data.pop();
+				}
+				return data;
+			}
+			function getSpan(data) {
+
+				var textNode = document.createTextNode(data);
+				var element = document.createElement("span");
+				element.appendChild(textNode);
+				return element;				
+			}
+			function handleIn( isLeftIn ) {
+
+				var data = getData('.control > textarea'),
+					noniusNode = isLeftIn ? display.firstChild : null;
+
+				//处理空字符串,即数组第一个值就为空，这时数组也只有一个值
+				if ( data[0] === '' ) {
+
+					alert('请输入非空内容');
+					return;
+				} 
+
+				//循环数组data，依次放入队列左端或右端(由参数noniusNode决定)
+				try{
+					data.forEach(function(item, index, array){
+
+						if (display.children.length <= 60) {
+
+							display.insertBefore( getSpan(item), noniusNode );
+						} else {
+
+							alert('总项数不能超过60');
+							foreach.break = new Error("StopIteration");
+						}
+					});
+				} catch(e) {
+					console.log(e.message);
+					if (e.message === "foreach is not defined") {
+						console.log("跳出来了");
+						return;
+					} else throw e;
+				}
+			}
+
+			function handleOut( isLeftOut ) {
+				//确定被移除的节点
+				var removedNode = isLeftOut ? display.firstChild : display.lastChild;
+
+				if (display.firstChild == null) {
+					alert('请先添加元素再弹出');
+					return;
+				}
+
+				display.removeChild(removedNode);			
+			}
+			function handleCheck() {
+
+				var checkData = getData('.check > input'),
+					item;
+				if ( checkData[0] === '' ) {
+					alert('请输入非空查询内容');
+					return;
+				} else if (checkData.length > 1) {
+					alert('请输入中文英文数字等合法查询字符');
+					return;
+				}
+
+				//循环display下面的span，将能模糊匹配的span中的文字颜色变黑
+				for (var i = 0; i < display.children.length; i++) {
+
+					item = display.children[i];
+					if ( item.innerText.indexOf( checkData[0] ) != -1 ) {
+						item.dataset.ischecked = 'checked';//自定义数据属性
+					} else {
+						item.dataset.ischecked = '';
+					}					
+				}
+			}
+			// document.querySelector('.leftIn').addEventListener('click', handelLeftIn, false);
+			// document.querySelector('.rightIn').addEventListener('click', handleRightIn, false);
+			// document.querySelector('.leftOut').addEventListener('click', handleLeftOut, false);
+			// document.querySelector('.rightOut').addEventListener('click',handelRightOut, false);
+			function handleClick(ev) {
+
+				switch(ev.target.className) {
+					case 'leftIn' : 
+						handleIn(true);
+						break;
+					case 'rightIn' :
+						handleIn(false);
+						break;
+					case 'leftOut' :
+						handleOut(true);
+						break;
+					case 'rightOut' :
+						handleOut(false);
+						break;
+					case 'checkbtn' :
+						handleCheck();
+						break;
+					default : 
+						console.log('无效点击');
+				}
+			}
+			//利用事件委托 降低内存使用 减少浏览器与页面之间的链接
+			document.querySelector('.control').addEventListener('click', handleClick, false);
+		})();
+	</script>
+</body>
+</html>
