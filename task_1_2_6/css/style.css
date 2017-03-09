@@ -52,7 +52,7 @@ blockquote {
 	margin: 0 0 5px 5px;
 }
 .display > span[data-ischecked="checked"] {
-	color: black;
+	background-color: black;
 }
 /*.display > span:first-of-type {
 	margin-left: 0;

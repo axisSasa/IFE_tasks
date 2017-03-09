@@ -6,14 +6,13 @@
 </head>
 <body>
 	<div class="control">
-		<textarea autofocus="true" rows="3" cols="30" placeholder="这里输入文本">
-		</textarea>
+		<textarea autofocus="true" rows="3" cols="30">这里输入文本</textarea>
 		<button class="leftIn">左侧入</button>
 		<button class="rightIn">右侧入</button>
 		<button class="leftOut">左侧出</button>
 		<button class="rightOut">右侧出</button>
 		<div class="check">
-			<input type="text"/>
+			<input type="text" placeholder="支持多个查询条件"/>
 			<button class="checkbtn">检&nbsp;查</button>
 		</div>		
 	</div>
@@ -24,13 +23,12 @@
 		(function(){
 			var display = document.querySelector('.display');
 			function getData(para) {
-				var data = document.querySelector(para).value.trim();
-				data =  data.split(/[^A-Za-z0-9\u4E00-\u9FA5]+/g,60);
-				if ( data[data.length - 1] == '' && data.length > 1) {
-					//处理数组最后一个为空的情况
-					data.pop();
-				}
-				return data;
+				//获取输入字符串
+				var data = document.querySelector(para).value;
+				//将所有非法字符替换为空格
+				data = data.replace(/[^A-Za-z0-9\u4E00-\u9FA5]+/g, ' ');
+				//去除左右空格,然后以空白为分界将字符串分割成数组
+				return data.trim().split(/\s+/g);
 			}
 			function getSpan(data) {
 
@@ -55,7 +53,7 @@
 				try{
 					data.forEach(function(item, index, array){
 
-						if (display.children.length <= 60) {
+						if (display.children.length < 60) {
 
 							display.insertBefore( getSpan(item), noniusNode );
 						} else {
@@ -91,20 +89,21 @@
 				if ( checkData[0] === '' ) {
 					alert('请输入非空查询内容');
 					return;
-				} else if (checkData.length > 1) {
-					alert('请输入中文英文数字等合法查询字符');
-					return;
 				}
 
 				//循环display下面的span，将能模糊匹配的span中的文字颜色变黑
+				outLoop:
 				for (var i = 0; i < display.children.length; i++) {
 
 					item = display.children[i];
-					if ( item.innerText.indexOf( checkData[0] ) != -1 ) {
-						item.dataset.ischecked = 'checked';//自定义数据属性
-					} else {
-						item.dataset.ischecked = '';
-					}					
+					for (let j = 0; j < checkData.length; j++) {
+						if (item.innerText.indexOf( checkData[j] ) != -1) {
+							item.dataset.ischecked = 'checked';//自定义数据属性
+							continue  outLoop;
+						}
+					}
+
+					item.dataset.ischecked = '';				
 				}
 			}
 			// document.querySelector('.leftIn').addEventListener('click', handelLeftIn, false);
