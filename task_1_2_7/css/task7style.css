@@ -1,0 +1,54 @@
+body,
+p,
+h1,
+h2,
+h3,
+div,
+section,
+article,
+img,
+ul,
+li,
+dd,
+dt,
+dl,
+hr,
+figure,
+figcaption,
+blockquote {
+	padding: 0;
+	margin: 0;
+}
+.root {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 800px;
+	height: 200px;
+}
+.root, .lt, .rt {
+	display: flex;
+	border: 1px solid black;
+	justify-content: space-around;
+	align-items: center;
+	background-color: white;
+}
+.root[data-is-being-order="order"], .lt[data-is-being-order="order"], .rt[data-is-being-order="order"] {
+	background-color: black;
+}
+.lt, .rt {
+	width: 45%;
+	height: 60%;
+}
+.control {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+	top: 20%;
+}
+.control button {
+	background-color: white;
+	border-radius: 8px;
+	border-width: 1px;
+}
