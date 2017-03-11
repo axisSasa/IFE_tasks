@@ -34,8 +34,14 @@ blockquote {
 	align-items: center;
 	background-color: white;
 }
-.root[data-is-being-order="order"], .lt[data-is-being-order="order"], .rt[data-is-being-order="order"] {
-	background-color: black;
+.root[data-is-being-order="preorder"], .lt[data-is-being-order="preorder"], .rt[data-is-being-order="preorder"] {
+	background-color: red;
+}
+.root[data-is-being-order="inorder"], .lt[data-is-being-order="inorder"], .rt[data-is-being-order="inorder"] {
+	background-color: blue;
+}
+.root[data-is-being-order="postorder"], .lt[data-is-being-order="postorder"], .rt[data-is-being-order="postorder"] {
+	background-color: green;
 }
 .lt, .rt {
 	width: 45%;
