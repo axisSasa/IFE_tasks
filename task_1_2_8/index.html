@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>JavaScript和树（二）</title>
+	<link rel="stylesheet" type="text/css" href="./css/task8style.css">
+	<script type="text/javascript" async src="./js/core.js"></script>
+</head>
+<body>
+	<div class="root">
+		<span>Super</span>
+		<div class="flex-grow-5">
+			<span>Cm</span>
+			<div class="flex-grow-6">
+				<span>Apple</span>
+				<div class="flex-grow-2"><span>Pear</span></div>
+				<div class="flex-grow-1"><span>Pig</span></div>
+				<div class="flex-grow-2"><span>Cola</span></div>
+				<div class="flex-grow-3"><span>Soccer</span></div>
+			</div>
+			<div class="flex-grow-2"><span>Phone</span></div>
+			<div class="flex-grow-3">
+				<span></span>
+				<div class="flex-grow-2"><span>Book</span></div>
+				<div class="flex-grow-3"><span>School</span></div>
+			</div>
+		</div>
+		<div class="flex-grow-5">
+			<span>Note</span>
+			<div class="flex-grow-1">
+				<span>Human</span> 
+				<div class="flex-grow-2"><span>Code</span></div>
+				<div class="flex-grow-3"><span>Operate</span></div>
+				<div class="flex-grow-2"><span>Man</span></div>
+			</div>
+			<div class="flex-grow-1">
+				<span>Program</span>
+				<div class="flex-grow-2">
+					<span>Bement</span>
+					<div class="basis50"><span>Cat</span></div>
+				</div>
+				<div class="flex-grow-1"><span>Class</span></div>
+			</div>
+		</div>
+		<div class="flex-grow-2 basis20"><span>Fh</span></div>
+	</div>
+
+	<div class="control">
+		<button class="recursive">Recursive</button>
+		<button class="depth-first">DepthFirst</button>
+		<button class="breadth-first">BreadthFirst</button>
+		<input type="text" placeholder="请输入要查询的文本" />
+		<select>
+			<option value="depth">DepthFirst</option>
+			<option value="breadth">BreadthFirst</option>
+		</select>
+		<button class="query">Query</button>
+		<div class="display"></div>
+	</div>	
+</body>
+</html>
