@@ -1,0 +1,252 @@
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+section,
+article,
+img,
+ul,
+li,
+dd,
+dt,
+dl,
+hr,
+figure,
+figcaption,
+blockquote {
+	padding: 0;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul li {
+	list-style: none;
+	text-align: center;
+}
+
+html {
+	/* 解决字体默认大小兼容问题*/
+	font-size: 625%;
+}
+
+@media screen and (max-width: 960px) {
+	html {
+		font-size: calc(625% * .5);
+	}
+}
+
+body {
+	font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+	/*设置字体默认大小为14px*/
+	font-size: .14rem;
+	background-color: #eee;
+}
+
+h1 {
+	font-size: .24rem;
+}
+
+h2 {
+	font-size: .22rem;
+}
+
+h3 {
+	font-size: .20rem;
+}
+
+h4 {
+	font-size: .18rem;
+}
+
+h5 {
+	font-size: .16rem;
+}
+
+
+/*头部*/
+.header {
+	color: white;
+	font-size: .24rem;
+	background-color: #91d4da;
+	width: 100%;
+	height: .6rem;
+}
+.header a {
+	color: white;
+	line-height: .6rem;
+	position: absolute;
+}
+.header h1 {
+	line-height: .6rem;
+	text-align: center;
+}
+
+/*导航栏*/
+nav {
+	background-color: white;
+}
+nav ul{
+	display: flex;
+	height: .4rem;
+}
+nav ul li{
+	font-size: .16rem;
+	flex: 1;
+	line-height: .4rem;
+}
+nav ul li.checked {
+	border-bottom: #91d4da solid .04rem;
+}
+nav ul li a {
+	color: black;
+}
+
+/*轮播图*/
+.banner {
+	display: flex;
+}
+.banner img {
+	width: 100%;
+	height: 100%;
+}
+
+/*标签栏*/
+.tab {
+	background-color: white;
+	padding: .2rem 0 .2rem 0;
+}
+.tab ul {
+	display: flex;
+}
+.tab ul li {
+	flex: 1;
+}
+.tab ul li > img {
+	width: 60%;
+}
+.tab ul li > span {
+	display: block;
+	font-size: .14rem;
+}
+
+/*分栏*/
+.columns {
+	background-color: white;
+}
+.columns ul {
+	width: 90%;
+	margin-left: 5%;
+	display: flex;
+	border-top: #eee solid .02rem;
+}
+.columns li {
+	margin-top: .2rem;
+	margin-bottom: .2rem;
+	flex: 1;
+	border-right: #eee solid .02rem;
+}
+.columns li:last-of-type {
+	border-right: none;
+}
+.columns li > img {
+	width: 60%;
+	padding-top: .2rem;
+}
+.columns li > h3 {
+	color: #eee;
+}
+
+/*模块*/
+.module {
+	margin-top: .3rem;
+	background-color: white;
+}
+.module h1 {
+	width: 90%;
+	margin-left: 5%;
+	margin-bottom: .3rem;
+	height: .8rem;
+	line-height: .8rem;
+	border-bottom: #eee solid .02rem; 
+}
+.module section {
+	width: 90%;
+	margin-left: 5%;
+	padding-bottom: .2rem;
+	display: flex;
+}
+.module section > img {
+	border: #fbb22f solid .02rem;
+	width: 25%;
+	height: 45%;
+}
+.module section > ul {
+	flex: 1;
+	/*形成田字布局*/
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-between;
+}
+.module section > ul > li {
+	width: 45%;
+	height: 45%;
+	margin-left: 5%;
+	background-color: #eee;
+	/*让a居中*/
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.module section > ul > li > a {
+	color: black;
+	font-size: 0.3rem;
+}
+
+/*文章*/
+.article {
+	margin-top: 0.3rem;
+}
+.art-type1 {
+	margin-bottom: 0.08rem;
+}
+.art-type1, .art-type2 {
+	padding: 0.2rem 5% 0.2rem 5%;
+	background-color: white;
+	display: flex;
+}
+.art-type1 img {
+	width: 25%;
+	height: 100%;
+}
+.art-type1 section {
+	padding-left: 5%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.art-type1 p, .art-type2 p{
+	color: gray;
+	font-size: 0.18rem;
+}
+.art-type2 {
+	flex-direction: column;
+	padding-bottom: 0.8rem;
+}
+.art-type2 section {
+	margin: 0.2rem 0 0.2rem 0;
+	display: flex;
+	justify-content: space-between;
+}
+.art-type2 section img {
+	width: 33%;
+	height: 100%;
+}
